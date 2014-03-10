@@ -1,0 +1,21 @@
+Great Woooork!  We are ready to build an angular web app!  
+
+We will simply add a 'h1' and a 'input' element, then 
+wire them up using 2-way databinding.
+
+'edit' app.js
+
+document.body.setAttribute('ng-app', 'app');
+var h1 = document.createElement('h1');
+h1.innerText = '{{foo}}';
+var input = document.createElement('input');
+input.setAttribute('ng-model', 'foo');
+document.body.insertBefore(input, document.body.firstChild);
+document.body.insertBefore(h1, document.body.firstChild);
+
+require('angular');
+angular.module('app', []);
+
+'save' app.js
+
+Cow Says: ./n

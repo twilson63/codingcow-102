@@ -1,0 +1,27 @@
+#!/usr/bin/env node
+
+var fs = require('fs');
+var slideFile = './.cowsay';
+var cowsay = require('cowsay');
+var exec = require('child_process').exec;
+
+exec('clear', function(err, stdout) {
+  if (err) { console.log(err); }
+  // clear console
+  console.log(stdout);
+  
+  // setup counter file
+  if (!fs.existsSync(slideFile)) {
+    fs.writeFileSync(slideFile, '1');
+  }
+  // read contents of counter file
+  var slide = fs.readFileSync(slideFile).toString();
+  // increment counter and save back to the file for next slide
+  fs.writeFileSync(slideFile, (parseInt(slide, 10) + 1).toString());
+  // run cow say:
+  var res = cowsay.say({
+    text: fs.readFileSync(__dirname + '/' + slide).toString()
+  });
+  console.log(res);
+});
+

@@ -1,0 +1,7 @@
+{
+  "name": "codingcow102",
+  "version": "0.0.0",
+  "dependencies": {
+    "cowsay": "^1.0.3"
+  }
+}
